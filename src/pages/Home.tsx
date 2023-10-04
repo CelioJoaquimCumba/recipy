@@ -3,6 +3,8 @@ import { SearchBar } from "../components/molecules/SearchBar";
 import { Pills } from "../components/organisms/Pills";
 import { Meals } from "../components/organisms/Meals";
 import { Button } from "../components/atoms/Button";
+import { category } from "../models/Category";
+import { useState } from "react";
 const meals = [
     {
         name: "Hamburger",
@@ -43,7 +45,23 @@ const popularMeals = [
         duration: 15,
     },
 ]
+
+const ListCategories:category[] = [
+    "Breakfast","Lunch", "Dinner", "Dessert"
+]
 export const Home = () => {
+    const _initial: category[] = []
+    const [ categories, setCategories ] = useState(_initial)
+
+    const toggleCategory = ( categories: boolean[]) => {
+        const newCategories:category[] = []
+        for (let i = 0; i < categories.length; i++) {
+            if (categories[i]) {
+                newCategories.push(ListCategories[i])
+            }
+        }
+        setCategories(newCategories)
+    }
     return (
         <div className=" h-screen w-screen flex px-4 pt-2 pb4 flex-col bg-gray-100">
             <NavBar/>
@@ -57,8 +75,8 @@ export const Home = () => {
                 </div>
                 {/* meals by categories */}
                 <div className="flex flex-col gap-4 items-start self-stretch">
-                    <Pills/>
-                    <Meals meals={meals}/>
+                    <Pills categories={ListCategories} addSelectedCategory={toggleCategory} />
+                    <Meals meals={meals.filter(meal => meal.categories.includes("Lunch"))}/>
                 </div>
                 {/* popular meals title */}
                 <div className="flex items-start gap-2 self-stretch justify-between">

@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Pill } from "../atoms/Pill";
-import React from "react";
+import { category } from "../../models/Category";
 
-const categories = [
-    "Breakfast","Lunch", "Dinner", "Dessert"
-]
-export const Pills = () => {
+type pillsProps = {
+    categories: category[]
+    addSelectedCategory: (categories: boolean[]) => void
+}
+export const Pills = ({categories, addSelectedCategory: selectCategory}: pillsProps) => {
     const [allActive, setAllActive] = useState(true);
     const [activeCategories, setActiveCategories] = useState(new Array(categories.length).fill(false));
 
@@ -13,6 +14,7 @@ export const Pills = () => {
         const newActiveCategories = [...activeCategories];
         newActiveCategories[index] = !newActiveCategories[index];
         setActiveCategories(newActiveCategories);
+        selectCategory(activeCategories)
         for (let i = 0; i < newActiveCategories.length; i++) {
             if (!newActiveCategories[i]) {
                 setAllActive(false)

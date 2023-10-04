@@ -7,7 +7,7 @@ export const Meals = ({meals}: meals) => {
         <div className="flex items-start gap-2 self-stretch overflow-auto">
             {meals.map((meal:meal) => {
                 return (
-                    <Meal name={meal.name} categories={meal.categories} image={meal.image} duration={meal.duration}/>
+                    <Meal key={meal.name} name={meal.name} categories={meal.categories} image={meal.image} duration={meal.duration}/>
                 )
             })}
         </div>
