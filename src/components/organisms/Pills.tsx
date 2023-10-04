@@ -29,7 +29,7 @@ export const Pills = () => {
     return (
             
                 // categories
-                <div className="flex items-start gap-2 self-stretch">
+                <div className="flex items-start gap-2 self-stretch overflow-auto">
                     <Pill category="All" active={allActive} onClick={handleAllActiveClick}/>
                     {categories.map((category, index) => (
                         <Pill key={index} category={category} active={activeCategories[index]} onClick={()=>handleCategoryClick(index)}/>
