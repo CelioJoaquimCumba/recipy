@@ -1,0 +1,1 @@
+export type category = "Breakfast" | "Lunch" | "Dinner" | "Snack" | "Dessert"

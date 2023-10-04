@@ -1,5 +1,3 @@
-import React from "react"
-
 type NavBarProps = {
     back?: boolean
 }
