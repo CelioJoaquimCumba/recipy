@@ -54,13 +54,16 @@ export const Home = () => {
     const [meals, setMeals] = useState()
 
     useEffect(() => {
-        try {
-            const {data} = await getMeals();
-            setMeals(data)
-            console.log(data);
-        } catch (error) {
-            console.error("Error fetching meals:", error);
+        const fetchMeals = async () => {
+            try {
+                const {data} = await getMeals();
+                setMeals(data)
+                console.log(data);
+            } catch (error) {
+                console.error("Error fetching meals:", error);
+            }
         }
+        fetchMeals()
     },[])
 
 
