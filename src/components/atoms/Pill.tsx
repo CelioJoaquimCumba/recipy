@@ -1,5 +1,3 @@
-import React from "react"
-
 type PillProps = {
     category: string
     active?: boolean
