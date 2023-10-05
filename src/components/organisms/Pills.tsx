@@ -14,7 +14,7 @@ export const Pills = ({categories, addSelectedCategory: selectCategory}: pillsPr
         const newActiveCategories = [...activeCategories];
         newActiveCategories[index] = !newActiveCategories[index];
         setActiveCategories(newActiveCategories);
-        selectCategory(activeCategories)
+        selectCategory(newActiveCategories)
         for (let i = 0; i < newActiveCategories.length; i++) {
             if (!newActiveCategories[i]) {
                 setAllActive(false)
@@ -26,7 +26,9 @@ export const Pills = ({categories, addSelectedCategory: selectCategory}: pillsPr
     }
     const handleAllActiveClick = () => {
         setAllActive(!allActive);
-        setActiveCategories(new Array(categories.length).fill(false));
+        const newActiveCategories = new Array(categories.length).fill(false);
+        setActiveCategories(newActiveCategories);
+        selectCategory(newActiveCategories)
     }
     return (
             

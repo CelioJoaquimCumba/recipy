@@ -4,7 +4,8 @@ import { Pills } from "../components/organisms/Pills";
 import { Meals } from "../components/organisms/Meals";
 import { Button } from "../components/atoms/Button";
 import { category } from "../models/Category";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { getMeals } from "../api/mealApi";
 const meals = [
     {
         name: "Hamburger",
@@ -50,7 +51,20 @@ const ListCategories:category[] = [
     "Breakfast","Lunch", "Dinner", "Dessert"
 ]
 export const Home = () => {
-    const _initial: category[] = []
+    const [meals, setMeals] = useState()
+
+    useEffect(() => {
+        try {
+            const {data} = await getMeals();
+            setMeals(data)
+            console.log(data);
+        } catch (error) {
+            console.error("Error fetching meals:", error);
+        }
+    },[])
+
+
+    const _initial: string[] = []
     const [ categories, setCategories ] = useState(_initial)
 
     const toggleCategory = ( categories: boolean[]) => {
@@ -76,13 +90,14 @@ export const Home = () => {
                 {/* meals by categories */}
                 <div className="flex flex-col gap-4 items-start self-stretch">
                     <Pills categories={ListCategories} addSelectedCategory={toggleCategory} />
-                    <Meals meals={meals.filter(meal => meal.categories.includes("Lunch"))}/>
+                    <Meals meals={meals.filter(meal => {
+                            return meal.categories.some(category => categories.includes(category)) || categories.length === 0
+                        })}/>
                 </div>
                 {/* popular meals title */}
                 <div className="flex items-start gap-2 self-stretch justify-between">
                     <h1 className="text-base leading-6 font-semibold text-gray-700">Popular meals</h1>
                     <a href="./menu" className="text-base leading-6 font-light text-orange-600"> see all</a>
-
                 </div>
                 {/* popular meals */}
                 <Meals meals={popularMeals}/>
