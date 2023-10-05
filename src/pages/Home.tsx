@@ -3,23 +3,26 @@ import { SearchBar } from "../components/molecules/SearchBar";
 import { Pills } from "../components/organisms/Pills";
 import { Meals } from "../components/organisms/Meals";
 import { Button } from "../components/atoms/Button";
-import { category } from "../models/Category";
+import { categories as categoriesData, category } from "../models/Category";
 import { useEffect, useState } from "react";
 import { getMeals } from "../api/mealApi";
-const meals = [
+const mealsData = [
     {
+        id: "lkfjasd",
         name: "Hamburger",
         categories: ["Lunch"],
         image: "https://images.pexels.com/photos/3220617/pexels-photo-3220617.jpeg?auto=compress&cs=tinysrgb&w=1600",
         duration: 30,
     },
     {
+        id: "fsldakj",
         name: "Pasta",
         categories: ["Lunch","Dinner"],
         image: "https://images.pexels.com/photos/1438672/pexels-photo-1438672.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
         duration: 60,
     },
     {
+        id: "fjadslk",
         name: "Salad",
         categories: ["Lunch","Dinner","Diet"],
         image: "https://images.pexels.com/photos/4958950/pexels-photo-4958950.jpeg?auto=compress&cs=tinysrgb&w=1600",
@@ -47,11 +50,9 @@ const popularMeals = [
     },
 ]
 
-const ListCategories:category[] = [
-    "Breakfast","Lunch", "Dinner", "Dessert"
-]
+const ListCategories:category[] = categoriesData
 export const Home = () => {
-    const [meals, setMeals] = useState()
+    const [meals, setMeals] = useState(mealsData)
 
     useEffect(() => {
         const fetchMeals = async () => {
@@ -93,7 +94,7 @@ export const Home = () => {
                 {/* meals by categories */}
                 <div className="flex flex-col gap-4 items-start self-stretch">
                     <Pills categories={ListCategories} addSelectedCategory={toggleCategory} />
-                    <Meals meals={meals.filter(meal => {
+                    <Meals meals={mealsData.filter(meal => {
                             return meal.categories.some(category => categories.includes(category)) || categories.length === 0
                         })}/>
                 </div>
@@ -103,7 +104,7 @@ export const Home = () => {
                     <a href="./menu" className="text-base leading-6 font-light text-orange-600"> see all</a>
                 </div>
                 {/* popular meals */}
-                <Meals meals={popularMeals}/>
+                <Meals meals={mealsData}/>
                 {/* something new */}
                 <div className="flex items-start gap-2 self-stretch flex-col">
                     <h1 className="text-base leading-6 font-semibold text-gray-700">Something new</h1>
