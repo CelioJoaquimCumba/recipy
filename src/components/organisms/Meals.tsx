@@ -4,7 +4,7 @@ import { Meal } from "../molecules/Meal"
 
 export const Meals = ({meals}: meals) => {
     return (
-        <div className="flex items-start gap-2 self-stretch overflow-auto min-h-[18.75rem] justify-center items-center">
+        <div className="flex gap-2 self-stretch overflow-auto min-h-[18.75rem] justify-center items-center">
             {meals.length === 0 && <p className="text-base leading-6 font-normal text-gray-500">No meals available :( Try another category</p>}
             {meals.map((meal:meal) => {
                 return (
