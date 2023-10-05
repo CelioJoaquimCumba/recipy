@@ -11,7 +11,7 @@ type recipe = {
 }
 export const getMeals = async (): Promise<meal[]> => {
     const {data} = await axiosInstance.get('?type=public&imageSize=REGULAR&random=true&co2EmissionsClass=A%2B')
-    console.log(data.hits[0].recipe)
+
     return data.hits.map((item: {recipe: recipe, link: unknown}) =>{
         const {recipe} = item
         return(

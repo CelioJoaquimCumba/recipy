@@ -30,20 +30,23 @@ const mealsData: meal[] = [
         duration: 15,
     }
 ]
-const popularMeals = [
+const popularsData = [
     {
+        id: "kfjlasaq",
         name: "Pizza",
         categories: ["Lunch", "Dinner"],
         image: "https://images.pexels.com/photos/708587/pexels-photo-708587.jpeg?auto=compress&cs=tinysrgb&w=1600",
         duration: 120,
     },
     {
+        id: "fdjsklaj",
         name: "Lasagne ",
         categories: ["Lunch", "Dinner"],
         image: "https://images.pexels.com/photos/5864352/pexels-photo-5864352.jpeg?auto=compress&cs=tinysrgb&w=1600",
         duration: 120,
     },
-    {
+    {  
+        id: "flas;j",
         name: "Pancake  ",
         categories: ["Dessert"],
         image: "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1600",
@@ -55,15 +58,18 @@ const ListCategories:category[] = categoriesData
 export const Home = () => {
     const initialMeal:meal[] = []
     const [meals, setMeals] = useState(initialMeal)
+    const [popularMeals, setPopularMeals] = useState(initialMeal)
 
     useEffect(() => {
         const fetchMeals = async () => {
             try {
                 const data = await getMeals();
+                const popularData = await getMeals();
                 setMeals(data)
-                console.log(data);
+                setPopularMeals(popularData)
             } catch (error) {
                 setMeals(mealsData)
+                setPopularMeals(popularsData)
                 console.error("Error fetching meals:", error);
             }
         }
@@ -107,7 +113,7 @@ export const Home = () => {
                     <a href="./menu" className="text-base leading-6 font-light text-orange-600"> see all</a>
                 </div>
                 {/* popular meals */}
-                <Meals meals={meals}/>
+                <Meals meals={popularMeals}/>
                 {/* something new */}
                 <div className="flex items-start gap-2 self-stretch flex-col">
                     <h1 className="text-base leading-6 font-semibold text-gray-700">Something new</h1>
