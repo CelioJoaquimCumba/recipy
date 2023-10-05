@@ -1,18 +1,29 @@
-export type category = "main course" | "side dish" | "dessert" | "appetizer" | "salad" | "bread" | "breakfast" | "soup" | "beverage" | "sauce" | "marinade" | "fingerfood" | "snack" | "drink"
+export type category = "Alcohol cocktail" | "Biscuits and cookies" | "Bread" | "Cereals" | "Condiments and sauces" | "Desserts" | "Drinks" | "Egg" | "Ice cream and custard" | "Main course" | "Pancake" | "Pasta" | "Pastry" | "Pies and tarts" | "Pizza" | "Preps" | "Preserve" | "Salad" | "Sandwiches" | "Seafood" | "Side dish" | "Soup" | "Special occasions" | "Starter" | "Sweets"
 
 export const categories: category[] = [
-  "main course",
-  "side dish",
-  "dessert",
-  "appetizer",
-  "salad",
-  "bread",
-  "breakfast",
-  "soup",
-  "beverage",
-  "sauce",
-  "marinade",
-  "fingerfood",
-  "snack",
-  "drink"
-];
+  "Alcohol cocktail",
+  "Biscuits and cookies",
+  "Bread",
+  "Cereals",
+  "Condiments and sauces",
+  "Desserts",
+  "Drinks",
+  "Egg",
+  "Ice cream and custard",
+  "Main course",
+  "Pancake",
+  "Pasta",
+  "Pastry",
+  "Pies and tarts",
+  "Pizza",
+  "Preps",
+  "Preserve",
+  "Salad",
+  "Sandwiches",
+  "Seafood",
+  "Side dish",
+  "Soup",
+  "Special occasions",
+  "Starter",
+  "Sweets"
+]

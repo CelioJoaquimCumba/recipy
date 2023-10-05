@@ -6,7 +6,8 @@ import { Button } from "../components/atoms/Button";
 import { categories as categoriesData, category } from "../models/Category";
 import { useEffect, useState } from "react";
 import { getMeals } from "../api/mealApi";
-const mealsData = [
+import { meal } from "../models/Meal";
+const mealsData: meal[] = [
     {
         id: "lkfjasd",
         name: "Hamburger",
@@ -52,15 +53,17 @@ const popularMeals = [
 
 const ListCategories:category[] = categoriesData
 export const Home = () => {
-    const [meals, setMeals] = useState(mealsData)
+    const initialMeal:meal[] = []
+    const [meals, setMeals] = useState(initialMeal)
 
     useEffect(() => {
         const fetchMeals = async () => {
             try {
-                const {data} = await getMeals();
+                const data = await getMeals();
                 setMeals(data)
                 console.log(data);
             } catch (error) {
+                setMeals(mealsData)
                 console.error("Error fetching meals:", error);
             }
         }
@@ -94,7 +97,7 @@ export const Home = () => {
                 {/* meals by categories */}
                 <div className="flex flex-col gap-4 items-start self-stretch">
                     <Pills categories={ListCategories} addSelectedCategory={toggleCategory} />
-                    <Meals meals={mealsData.filter(meal => {
+                    <Meals meals={meals.filter(meal => {
                             return meal.categories.some(category => categories.includes(category)) || categories.length === 0
                         })}/>
                 </div>
@@ -104,7 +107,7 @@ export const Home = () => {
                     <a href="./menu" className="text-base leading-6 font-light text-orange-600"> see all</a>
                 </div>
                 {/* popular meals */}
-                <Meals meals={mealsData}/>
+                <Meals meals={meals}/>
                 {/* something new */}
                 <div className="flex items-start gap-2 self-stretch flex-col">
                     <h1 className="text-base leading-6 font-semibold text-gray-700">Something new</h1>

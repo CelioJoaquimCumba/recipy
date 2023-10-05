@@ -11,6 +11,6 @@ export const Pill = ({category, active=false, onClick}: PillProps) => {
     }
     
     return (
-        <button onClick={handleClick} className={"flex p-2 items-center gap-2.5 rounded-lg" + (active ? " bg-orange-600 text-white" : " bg-gray-200 text-gray-500")}>{category}</button>
+        <button onClick={handleClick} className={"flex p-2 items-center gap-2.5 rounded-lg whitespace-nowrap" + (active ? " bg-orange-600 text-white" : " bg-gray-200 text-gray-500 wrap")}>{category}</button>
     )
 }

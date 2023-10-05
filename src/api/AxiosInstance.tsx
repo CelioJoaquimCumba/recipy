@@ -1,7 +1,7 @@
 import axios from 'axios'
-import { apiKey } from './ApiKey'
+import { app_key, app_id } from './ApiKey'
 
-const BASE_URL = "https://api.spoonacular.com/"
+const BASE_URL = "https://api.edamam.com/api/recipes/v2/"
 
 export const axiosInstance = axios.create({
     baseURL: BASE_URL,
@@ -9,6 +9,7 @@ export const axiosInstance = axios.create({
         'Content-Type': 'application/json',
     },
     params: {
-        apiKey
+        app_key,
+        app_id
     }
 })
