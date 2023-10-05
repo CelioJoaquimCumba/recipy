@@ -4,7 +4,7 @@ import { Chip } from "../atoms/Chip"
 
 export const Meal = ({name, categories, image, duration}: meal) => {
     return (
-        <div className=" bg-cover bg-center  flex min-w-[12.5rem] min-h-[18.75rem]  flex-col justify-end items-start gap-2 rounded-2xl shadow-m " style={{backgroundImage: `url(${image})`}}>
+        <div className=" bg-cover bg-center  flex min-w-[12.5rem] h-full  flex-col justify-end items-start gap-2 rounded-2xl shadow-m " style={{backgroundImage: `url(${image})`}}>
             <div className=" flex-grow w-full bg-gradient-to-t from-black to-transparent p-2 opacity-90 rounded-2xl flex flex-col justify-end">
                 <div className="flex flex-wrap-reverse content-center gap-2 self-stretch">
                     {categories.map((category: string) => {

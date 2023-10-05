@@ -65,7 +65,7 @@ export const Home = () => {
             try {
                 const data = await getMeals();
                 const popularData = await getMeals();
-                setMeals(data)
+                if(data)setMeals(data)
                 setPopularMeals(popularData)
             } catch (error) {
                 setMeals(mealsData)
@@ -91,7 +91,7 @@ export const Home = () => {
     }
     return (
         <div className=" h-screen w-screen flex px-4 pt-2 pb4 flex-col bg-gray-100">
-            { popularMeals.length === 0 || meals.length === 0  ? 
+            { popularMeals.length === 0 && meals.length === 0  ? 
                 <div className="flex flex-col items-center justify-center h-screen w-screen">
                     <span className="relative flex   justify-center items-center">
                         <span className="animate-ping absolute inline-flex h-8 w-8 rounded-full bg-orange-400 opacity-75"></span>
