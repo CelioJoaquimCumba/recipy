@@ -56,9 +56,10 @@ const popularsData = [
 
 const ListCategories:category[] = categoriesData
 export const Home = () => {
-    const initialMeal:meal[] = []
-    const [meals, setMeals] = useState(initialMeal)
+    const initialMeal:meal[] = mealsData
+    const [meals, setMeals] = useState(popularsData)
     const [popularMeals, setPopularMeals] = useState(initialMeal)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         const fetchMeals = async () => {
@@ -66,12 +67,13 @@ export const Home = () => {
                 const data = await getMeals();
                 const popularData = await getMeals();
                 if(data)setMeals(data)
-                setPopularMeals(popularData)
+                if(popularData)setPopularMeals(popularData)
             } catch (error) {
                 setMeals(mealsData)
                 setPopularMeals(popularsData)
                 console.error("Error fetching meals:", error);
             }
+            setLoading(false)
         }
         fetchMeals()
     },[])
@@ -91,8 +93,8 @@ export const Home = () => {
     }
     return (
         <div className=" h-screen w-screen flex px-4 pt-2 pb4 flex-col bg-gray-100">
-            { popularMeals.length === 0 && meals.length === 0  ? 
-                <div className="flex flex-col items-center justify-center h-screen w-screen">
+            { loading ? 
+                <div className="flex flex-col items-center justify-center h-full w-full">
                     <span className="relative flex   justify-center items-center">
                         <span className="animate-ping absolute inline-flex h-8 w-8 rounded-full bg-orange-400 opacity-75"></span>
                         <span className="relative inline-flex rounded-full h-8 w-8 bg-orange-500"></span>
@@ -104,7 +106,7 @@ export const Home = () => {
              <>
                 <NavBar/>
                 {/* body */}
-                <div className="flex py-4 flex-col items-start gap-4 flex-grow self-stretch">
+                <div className="flex py-4 flex-col items-start gap-4 flex-grow self-stretch ">
                     {/* header */}
                     <div className="flex flex-col items-start gap-2 self-stretch">
                         <h1 className="text-sm leading-5 font-light text-center text-orange-600">Good morning</h1>
@@ -112,10 +114,10 @@ export const Home = () => {
                         <SearchBar/>
                     </div>
                     {/* meals by categories */}
-                    <div className="flex flex-col gap-4 items-start self-stretch">
+                    <div className="flex flex-col gap-4 items-start self-stretch ">
                         <Pills categories={ListCategories} addSelectedCategory={toggleCategory} />
                         <Meals meals={meals.filter(meal => {
-                                return meal.categories.some(category => categories.includes(category)) || categories.length === 0
+                                return categories != undefined && meal.categories.some(category => categories.includes(category)) || categories.length === 0
                             })}/>
                     </div>
                     {/* popular meals title */}
