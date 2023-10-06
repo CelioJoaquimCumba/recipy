@@ -117,7 +117,7 @@ export const Home = () => {
                     <div className="flex flex-col gap-4 items-start self-stretch ">
                         <Pills categories={ListCategories} addSelectedCategory={toggleCategory} />
                         <Meals meals={meals.filter(meal => {
-                                return categories != undefined && meal.categories.some(category => categories.includes(category)) || categories.length === 0
+                                return meal.categories  && meal.categories.some(category => categories.includes(category)) || categories.length === 0
                             })}/>
                     </div>
                     {/* popular meals title */}
