@@ -2,17 +2,13 @@ import React, { useState } from "react"
 
 export const SearchBar = () => {
     const [loading, setLoading] = useState(false)
-    let timeoutId : NodeJS.Timeout | undefined
     const handleSearch= () => {
         setLoading(true)
-        timeoutId = setTimeout(() => {
+        setTimeout(() => {
             setLoading(false)
         }, 3000);
     }
     const handleCancel = () => {
-        if (timeoutId) {
-            clearTimeout(timeoutId)
-        }
         setLoading(false)
     }
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
