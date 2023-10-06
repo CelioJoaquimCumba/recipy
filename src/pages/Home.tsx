@@ -7,6 +7,7 @@ import { categories as categoriesData, category } from "../models/Category";
 import { useEffect, useState } from "react";
 import { getMeals } from "../api/mealApi";
 import { meal } from "../models/Meal";
+import { useNavigate } from "react-router-dom";
 const mealsData: meal[] = [
     {
         id: "lkfjasd",
@@ -60,6 +61,7 @@ export const Home = () => {
     const [meals, setMeals] = useState(popularsData)
     const [popularMeals, setPopularMeals] = useState(initialMeal)
     const [loading, setLoading] = useState(true)
+    const navigate = useNavigate()
 
     useEffect(() => {
         const fetchMeals = async () => {
@@ -134,7 +136,7 @@ export const Home = () => {
                             <span className="text-base leading-6 font-medium text-gray-500">
                                 We have alot of recomendations for you!
                             </span>
-                            <Button/>
+                            <Button onClick={() => navigate("./menu")}/>
 
                         </div>
                     </div>

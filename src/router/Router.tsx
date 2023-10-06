@@ -12,7 +12,7 @@ export const router = createBrowserRouter([
                 element: <Home/>
             },
             {
-                path: "meal/:mealId",
+                path: "meal/:mealUri",
                 element: <Meal/>
             },
             {
