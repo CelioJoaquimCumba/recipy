@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { getMeals } from "../api/mealApi";
 
 export const Meal = () => {
-    const [ meals, setMeal ] = useState()
-    useEffect(() => {
-    const fetchMeals = async () => {
-        try {
-            const {data} = await getMeals();
-            setMeal(data)
-            console.log(data);
-        } catch (error) {
-            console.error("Error fetching meals:", error);
-        }
-    };
+    const [ meals ] = useState()
+//     useEffect(() => {
+//     const fetchMeals = async () => {
+//         try {
+//             const data = await getMeals();
+//             setMeal(data)
+//             console.log(data);
+//         } catch (error) {
+//             console.error("Error fetching meals:", error);
+//         }
+//     };
 
-    fetchMeals();
-}, []);
+//     fetchMeals();
+// }, []);
     return (
         <div>
             {meals ? 
