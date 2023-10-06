@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { getMeals } from "../api/mealApi";
+import  { useState } from "react";
 
 export const Meal = () => {
     const [ meals ] = useState()
