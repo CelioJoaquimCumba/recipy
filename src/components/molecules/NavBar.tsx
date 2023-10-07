@@ -4,7 +4,7 @@ type NavBarProps = {
 
 export const NavBar = ({back=false}: NavBarProps) => {
     return(
-        <div className="flex flex-row bg-gray-50 rounded-2xl w-100 px-2 py-4 justify-between items-end">
+        <div className="flex flex-row bg-gray-50 rounded-2xl w-full px-2 py-4 justify-between items-end">
             <div className="flex flex-row gap-2 items-end flex-grow">
                 {back ? (
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="gray" className="w-6 h-6">
