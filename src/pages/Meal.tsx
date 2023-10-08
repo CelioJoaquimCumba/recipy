@@ -4,6 +4,8 @@ import { NavBar } from "../components/molecules/NavBar";
 import { Ingredients } from "../components/organisms/Ingredients";
 import { ingredient } from "../models/Ingredient";
 import { instruction } from "../models/Instructions";
+import { Meals } from "../components/organisms/Meals";
+import { meal } from "../models/Meal";
 
 const ingredients:ingredient[] = [
     {
@@ -55,6 +57,30 @@ const ingredients:ingredient[] = [
         ingredient: "Black Pepper",
         quantity: 1,
         unit: "pinch"
+    }
+];
+
+const similarMeals:meal[ ] = [
+    {
+        id: "asdklfj",
+        name: "Cheeseburger",
+        categories: ["Lunch"],
+        image: "https://images.pexels.com/photos/3060513/pexels-photo-3060513.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        duration: 30,
+    },
+    {
+        id: "jasdflk",
+        name: "Veggie Burger",
+        categories: ["Lunch", "Vegetarian"],
+        image: "https://images.pexels.com/photos/761685/pexels-photo-761685.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        duration: 25,
+    },
+    {
+        id: "fjdkals",
+        name: "Chicken Burger",
+        categories: ["Lunch", "Dinner"],
+        image: "https://images.pexels.com/photos/35488/burger-food-hamburger-fast-food-35488.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        duration: 35,
     }
 ];
 
@@ -150,6 +176,10 @@ export const Meal = () => {
                 <div className="flex flex-col items-start gap-2 self-stretch">
                     <h1 className="text-gray-700 text-base leading-6 font-semibold">Instructions</h1>
                     <Instructions instructions={instructions} />
+                </div>
+                <div className="flex flex-col items-start gap-4 self-stretch">
+                    <h1 className="text-gray-700 text-base leading-6 font-semibold">Similar Meals</h1>
+                    <Meals meals={similarMeals}/>
                 </div>
             </div>
         </div>
