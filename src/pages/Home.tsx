@@ -3,11 +3,12 @@ import { SearchBar } from "../components/molecules/SearchBar";
 import { Pills } from "../components/organisms/Pills";
 import { Meals } from "../components/organisms/Meals";
 import { Button } from "../components/atoms/Button";
-import { categories as categoriesData, category } from "../models/Category";
+import {category } from "../models/Category";
 import { useEffect, useState } from "react";
 // import { getMeals } from "../api/mealApi";
 import { useNavigate } from "react-router-dom";
 import { mealsData } from "../data/Meals";
+import { categoriesData } from "../data/Categories";
 
 // const popularsData = [
 //     {
