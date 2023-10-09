@@ -65,7 +65,7 @@ const similarMeals:meal[ ] = [
         id: "asdklfj",
         name: "Cheeseburger",
         categories: ["Lunch"],
-        image: "https://images.pexels.com/photos/3060513/pexels-photo-3060513.jpeg?auto=compress&cs=tinysrgb&w=1600",
+        image: "https://www.pexels.com/photo/ham-burger-with-vegetables-1639557/",
         duration: 30,
     },
     {
@@ -164,7 +164,7 @@ export const Meal = () => {
                 {/* basic information */}
                 <div className="flex flex-col items-start gap-2 self-stretch">
                     <h1 className="text-base leading-6 font-semibold text-gray-700">Hamburguer</h1>
-                    <p className="text-gray-500 text-sm leading-5 font-light self-stretch">
+                    <p className="text-gray-500 text-base leading-5 font-light self-stretch">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates perspiciatis deleniti quis hic ducimus ea alias, nihil officiis molestias debitis voluptas recusandae cum necessitatibus incidunt architecto? Facere atque molestiae deserunt.
                     </p>
                 </div>

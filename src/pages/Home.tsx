@@ -5,7 +5,7 @@ import { Meals } from "../components/organisms/Meals";
 import { Button } from "../components/atoms/Button";
 import { categories as categoriesData, category } from "../models/Category";
 import { useEffect, useState } from "react";
-import { getMeals } from "../api/mealApi";
+// import { getMeals } from "../api/mealApi";
 import { meal } from "../models/Meal";
 import { useNavigate } from "react-router-dom";
 const mealsData: meal[] = [
@@ -57,19 +57,18 @@ const popularsData = [
 
 const ListCategories:category[] = categoriesData
 export const Home = () => {
-    const initialMeal:meal[] = mealsData
-    const [meals, setMeals] = useState(popularsData)
-    const [popularMeals, setPopularMeals] = useState(initialMeal)
+    const [meals, setMeals] = useState(mealsData)
+    const [popularMeals, setPopularMeals] = useState(popularsData)
     const [loading, setLoading] = useState(true)
     const navigate = useNavigate()
 
     useEffect(() => {
         const fetchMeals = async () => {
             try {
-                const data = await getMeals();
-                const popularData = await getMeals();
-                if(data)setMeals(data)
-                if(popularData)setPopularMeals(popularData)
+                // const data = await getMeals();
+                // const popularData = await getMeals();
+                // if(data)setMeals(data)
+                // if(popularData)setPopularMeals(popularData)
             } catch (error) {
                 setMeals(mealsData)
                 setPopularMeals(popularsData)

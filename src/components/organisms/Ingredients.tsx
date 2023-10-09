@@ -7,7 +7,7 @@ type ingredientsList = {
 
 export const Ingredients = ({ingredients} : ingredientsList) => {
     return (
-        <div className="flex flex-col items-start gap-2 self-stretch">
+        <div className="flex flex-col items-start gap-2 self-stretch bg-white px-4 rounded-lg ">
             {ingredients && ingredients.map((ingredient:ingredient) => {
                 return (
                     <Ingredient key={ingredient.ingredient} ingredient={ingredient.ingredient} quantity={ingredient.quantity} unit={ingredient.unit}/>

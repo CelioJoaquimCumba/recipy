@@ -1,12 +1,15 @@
-import React, { useState } from "react"
+import React, { ChangeEvent, useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 export const SearchBar = () => {
     const [loading, setLoading] = useState(false)
+    const navigate = useNavigate()
+    const [input, setInput] = useState("")
+
     const handleSearch= () => {
         setLoading(true)
-        setTimeout(() => {
-            setLoading(false)
-        }, 3000);
+        navigate(`/menu${input && "?q="+input}`)
+        
     }
     const handleCancel = () => {
         setLoading(false)
@@ -16,6 +19,9 @@ export const SearchBar = () => {
             e.preventDefault()
             handleSearch()
         }
+    }
+    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+        setInput((e.target as HTMLInputElement).value)
     }
 
     return (
@@ -34,7 +40,7 @@ export const SearchBar = () => {
                 </button>
             
             }
-            <input type="text" placeholder="Search Recipes" className=" w-full py-4  placeholder-gray-500 text-base leading-6 font-normal w-100 ring-0  focus:outline-none" onKeyDown={handleKeyDown} />
+            <input value={input} onChange={handleChange} type="text" placeholder="Search Recipes" className=" w-full py-4  placeholder-gray-500 text-base leading-6 font-normal w-100 ring-0  focus:outline-none" onKeyDown={handleKeyDown} />
         </form>
     )
 }
