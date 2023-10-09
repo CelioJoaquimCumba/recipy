@@ -161,7 +161,7 @@ export const Meal = () => {
                         <div className="flex gap-2 overflow-x-auto">
                             {meal.categories && meal.categories.map((category: string) => {
                                 return (
-                                    <Pill  active={true} category={category} onClick={() => {} }/>
+                                    <Pill key={category}  active={true} category={category} onClick={() => {} }/>
                                 )
                             })}
                         </div>
