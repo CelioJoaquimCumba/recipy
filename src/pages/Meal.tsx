@@ -4,8 +4,7 @@ import { NavBar } from "../components/molecules/NavBar";
 import { Ingredients } from "../components/organisms/Ingredients";
 import { Meals } from "../components/organisms/Meals";
 import { useParams } from "react-router-dom";
-import { getMealById } from "../utils/getMealById";
-import { mealsData } from "../data/MealsDetails";
+import { getMealById, getMealDetailedById } from "../utils/getMealById";
 
 
 
@@ -145,8 +144,10 @@ import { mealsData } from "../data/MealsDetails";
 export const Meal = () => {
     const mealId = useParams().id
     let meal
+    let similarMeals
     if (mealId){
-        meal = getMealById(mealId, mealsData)
+        meal = getMealDetailedById(mealId)
+        similarMeals = meal?.similarMeals?.map((meal) => getMealById(meal.id))
     }
     if(meal){
         return (
@@ -191,10 +192,10 @@ export const Meal = () => {
                         <Instructions instructions={meal.instructions} />
                     </div>
                     {/* Similar Meals */}
-                    {meal.similarMeals && meal.similarMeals.length > 0 && 
+                    {similarMeals  && similarMeals.length > 0 && 
                     <div className="flex flex-col items-start gap-4 self-stretch">
                         <h1 className="text-gray-700 text-base leading-6 font-semibold">Similar Meals</h1>
-                        <Meals meals={meal.similarMeals}/>
+                        <Meals meals={similarMeals}/>
                     </div>
                     }
                 </div>

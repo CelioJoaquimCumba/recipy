@@ -1,7 +1,6 @@
 import { category } from "./Category";
 import { ingredient } from "./Ingredient";
 import { instruction } from "./Instructions";
-import { meal } from "./Meal";
 
 export type mealDetails = {
     id: string,
@@ -13,5 +12,8 @@ export type mealDetails = {
     duration: number,
     instructions: instruction[],
     ingredients: ingredient[]
-    similarMeals?: meal[]
+    similarMeals?: similarMeal[]
+}
+type similarMeal = {
+    id: string
 }

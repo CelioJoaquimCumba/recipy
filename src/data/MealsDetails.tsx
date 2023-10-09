@@ -1,6 +1,6 @@
 import { mealDetails } from "../models/MealDetails";
 
-export const mealsData: mealDetails[] = [
+export const mealsDetailedData: mealDetails[] = [
     {
         id: "1",
         name: "Hamburger",
@@ -21,20 +21,7 @@ export const mealsData: mealDetails[] = [
             { ingredient: "Cheese", quantity: 1, unit: "slice" },
         ],
         similarMeals: [
-            {
-                id: "2",
-                name: "Pasta",
-                categories: ["pasta", "main course"],
-                image: "https://images.pexels.com/photos/1438672/pexels-photo-1438672.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-                duration: 60,
-            },
-            {
-                id: "3",
-                name: "Salad",
-                categories: ["salad"],
-                image: "https://images.pexels.com/photos/4958950/pexels-photo-4958950.jpeg?auto=compress&cs=tinysrgb&w=1600",
-                duration: 15,
-            }
+            {id:"2"},{id:"3"}
         ],
     },
     {
