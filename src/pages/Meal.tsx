@@ -150,8 +150,8 @@ export const Meal = () => {
     }
     if(meal){
         return (
-            <div className="flex flex-col items-start w-screen h-full p-4 pt-2 bg-gray-100">
-                <NavBar back={true}/>
+            <div className="flex flex-col items-start w-screen h-full p-4 pt-0 bg-gray-100">
+                <NavBar/>
                 {/* body */}
                 <div className="flex py-4 flex-col gap-4 flex-grow self-stretch">
                     <img className=" h-64 w-full object-cover rounded-md self-stretch" src={meal.image} alt="food image" />
