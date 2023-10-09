@@ -1,7 +1,9 @@
+import { category } from "./Category"
+
 export type meal = {
     id: string,
     name: string,
-    categories: string[],
+    categories: category[],
     image: string,
     duration: number
 }

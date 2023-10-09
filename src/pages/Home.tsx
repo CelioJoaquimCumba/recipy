@@ -6,59 +6,37 @@ import { Button } from "../components/atoms/Button";
 import { categories as categoriesData, category } from "../models/Category";
 import { useEffect, useState } from "react";
 // import { getMeals } from "../api/mealApi";
-import { meal } from "../models/Meal";
 import { useNavigate } from "react-router-dom";
-const mealsData: meal[] = [
-    {
-        id: "lkfjasd",
-        name: "Hamburger",
-        categories: ["Lunch"],
-        image: "https://images.pexels.com/photos/3220617/pexels-photo-3220617.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        duration: 30,
-    },
-    {
-        id: "fsldakj",
-        name: "Pasta",
-        categories: ["Lunch","Dinner"],
-        image: "https://images.pexels.com/photos/1438672/pexels-photo-1438672.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        duration: 60,
-    },
-    {
-        id: "fjadslk",
-        name: "Salad",
-        categories: ["Lunch","Dinner","Diet"],
-        image: "https://images.pexels.com/photos/4958950/pexels-photo-4958950.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        duration: 15,
-    }
-]
-const popularsData = [
-    {
-        id: "kfjlasaq",
-        name: "Pizza",
-        categories: ["Lunch", "Dinner"],
-        image: "https://images.pexels.com/photos/708587/pexels-photo-708587.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        duration: 120,
-    },
-    {
-        id: "fdjsklaj",
-        name: "Lasagne ",
-        categories: ["Lunch", "Dinner"],
-        image: "https://images.pexels.com/photos/5864352/pexels-photo-5864352.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        duration: 120,
-    },
-    {  
-        id: "flas;j",
-        name: "Pancake  ",
-        categories: ["Dessert"],
-        image: "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1600",
-        duration: 15,
-    },
-]
+import { mealsData } from "../data/Meals";
+
+// const popularsData = [
+//     {
+//         id: "kfjlasaq",
+//         name: "Pizza",
+//         categories: ["Lunch", "Dinner"],
+//         image: "https://images.pexels.com/photos/708587/pexels-photo-708587.jpeg?auto=compress&cs=tinysrgb&w=1600",
+//         duration: 120,
+//     },
+//     {
+//         id: "fdjsklaj",
+//         name: "Lasagne ",
+//         categories: ["Lunch", "Dinner"],
+//         image: "https://images.pexels.com/photos/5864352/pexels-photo-5864352.jpeg?auto=compress&cs=tinysrgb&w=1600",
+//         duration: 120,
+//     },
+//     {  
+//         id: "flas;j",
+//         name: "Pancake  ",
+//         categories: ["Dessert"],
+//         image: "https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=1600",
+//         duration: 15,
+//     },
+// ]
 
 const ListCategories:category[] = categoriesData
 export const Home = () => {
     const [meals, setMeals] = useState(mealsData)
-    const [popularMeals, setPopularMeals] = useState(popularsData)
+    const [popularMeals, setPopularMeals] = useState(mealsData)
     const [loading, setLoading] = useState(true)
     const navigate = useNavigate()
 
@@ -71,7 +49,7 @@ export const Home = () => {
                 // if(popularData)setPopularMeals(popularData)
             } catch (error) {
                 setMeals(mealsData)
-                setPopularMeals(popularsData)
+                setPopularMeals(mealsData)
                 console.error("Error fetching meals:", error);
             }
             setLoading(false)
