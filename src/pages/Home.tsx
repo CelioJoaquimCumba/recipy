@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { mealsData } from "../data/Meals";
 import { categoriesData } from "../data/Categories";
+import { TrendingCategories } from "../components/organisms/TrendingCategories";
 
 // const popularsData = [
 //     {
@@ -37,7 +38,6 @@ import { categoriesData } from "../data/Categories";
 const ListCategories:category[] = categoriesData
 export const Home = () => {
     const [meals, setMeals] = useState(mealsData)
-    const [popularMeals, setPopularMeals] = useState(mealsData)
     const [loading, setLoading] = useState(true)
     const navigate = useNavigate()
 
@@ -50,14 +50,12 @@ export const Home = () => {
                 // if(popularData)setPopularMeals(popularData)
             } catch (error) {
                 setMeals(mealsData)
-                setPopularMeals(mealsData)
                 console.error("Error fetching meals:", error);
             }
             setLoading(false)
         }
         fetchMeals()
     },[])
-
 
     const _initial: string[] = []
     const [ categories, setCategories ] = useState(_initial)
@@ -82,7 +80,7 @@ export const Home = () => {
                     <p className="text-2xl leading-6 font-semibold text-orange-500">Loading</p>
 
                 </div>
-             : 
+             :
              <>
                 <NavBar/>
                 {/* body */}
@@ -102,11 +100,11 @@ export const Home = () => {
                     </div>
                     {/* popular meals title */}
                     <div className="flex items-start gap-2 self-stretch justify-between">
-                        <h1 className="text-base leading-6 font-semibold text-gray-700">Popular meals</h1>
+                        <h1 className="text-base leading-6 font-semibold text-gray-700">Trending categories</h1>
                         <a href="./menu" className="text-base leading-6 font-light text-orange-600"> see all</a>
                     </div>
                     {/* popular meals */}
-                    <Meals meals={popularMeals}/>
+                    <TrendingCategories/>
                     {/* something new */}
                     <div className="flex items-start gap-2 self-stretch flex-col">
                         <h1 className="text-base leading-6 font-semibold text-gray-700">Something new</h1>
@@ -115,10 +113,8 @@ export const Home = () => {
                                 We have alot of recomendations for you!
                             </span>
                             <Button onClick={() => navigate("./menu")}/>
-
                         </div>
                     </div>
-
                 </div>
              </>
              }
