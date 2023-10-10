@@ -87,7 +87,7 @@ export const Home = () => {
                 <div className="flex py-4 flex-col items-start gap-4 flex-grow self-stretch ">
                     {/* header */}
                     <div className="flex flex-col items-start gap-2 self-stretch">
-                        <h1 className="text-sm leading-5 font-light text-center text-orange-600">Good morning</h1>
+                        <h1 className="text-base leading-5 font-normal text-center text-orange-600">Good morning</h1>
                         <p className="text-gray-700 text-base leading-6 font-normal w-1/2">What would you like to cook today?</p>
                         <SearchBar/>
                     </div>
