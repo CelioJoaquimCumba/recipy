@@ -108,7 +108,7 @@ export const Home = () => {
                     {/* something new */}
                     <div className="flex items-start gap-2 self-stretch flex-col">
                         <h1 className="text-base leading-6 font-semibold text-gray-700">Something new</h1>
-                        <div className="flex p-2 justify-center items-center gap-2 flex-grow self-stretch rounded-2xl bg-gray-200">
+                        <div className="flex p-2 justify-center items-center gap-2 flex-grow self-stretch rounded-2xl bg-white">
                             <span className="text-base leading-6 font-medium text-gray-500">
                                 We have alot of recomendations for you!
                             </span>
