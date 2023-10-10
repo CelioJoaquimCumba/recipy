@@ -19,7 +19,7 @@ export const Meal = ({ id, name, categories, image, duration}: meal) => {
                     })}
                 </div>
                 <div className="flex flex-col justify-end items-start self-stretch">
-                    <span className="text-white text-base leading-6 font-bold">{name}</span>
+                    <span className="text-white text-base leading-6 font-black">{name}</span>
                     <span className="text-white text-base leading-6 font-normal">{duration} min</span>
                 </div>
             </div>
