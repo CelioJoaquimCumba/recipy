@@ -6,7 +6,7 @@ type pillsProps = {
     categories: category[]
     addSelectedCategory: (categories: boolean[]) => void
 }
-export const Pills = ({categories, addSelectedCategory: selectCategory}: pillsProps) => {
+export const Categories = ({categories, addSelectedCategory: selectCategory}: pillsProps) => {
     const [allActive, setAllActive] = useState(true);
     const [activeCategories, setActiveCategories] = useState(new Array(categories.length).fill(false));
 
@@ -33,7 +33,7 @@ export const Pills = ({categories, addSelectedCategory: selectCategory}: pillsPr
     return (
             
                 // categories
-                <div className="flex items-start gap-2 self-stretch overflow-auto">
+                <div className="flex items-start gap-2 self-stretch overflow-auto no-scrollbar">
                     <Pill category="All" active={allActive} onClick={handleAllActiveClick}/>
                     {categories.map((category, index) => (
                         <Pill key={index} category={category} active={activeCategories[index]} onClick={()=>handleCategoryClick(index)}/>

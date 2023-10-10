@@ -1,6 +1,6 @@
 import { NavBar } from "../components/molecules/NavBar";
 import { SearchBar } from "../components/molecules/SearchBar";
-import { Pills } from "../components/organisms/Pills";
+import { Categories } from "../components/organisms/categories";
 import { Meals } from "../components/organisms/Meals";
 import { Button } from "../components/atoms/Button";
 import {category } from "../models/Category";
@@ -95,7 +95,7 @@ export const Home = () => {
                     </div>
                     {/* meals by categories */}
                     <div className="flex flex-col gap-4 items-start self-stretch ">
-                        <Pills categories={ListCategories} addSelectedCategory={toggleCategory} />
+                        <Categories categories={ListCategories} addSelectedCategory={toggleCategory} />
                         <Meals meals={meals.filter(meal => {
                                 return meal.categories  && meal.categories.some(category => categories.includes(category)) || categories.length === 0
                             })}/>
