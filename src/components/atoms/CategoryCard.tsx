@@ -1,12 +1,14 @@
+import { useNavigate } from "react-router-dom"
+
 type categoryCard = {
     name: string
     image: string
 }
 
 export const CategoryCard = ({image, name} : categoryCard) => {
-
+    const navigate = useNavigate()
     const handleClick = () => {
-        return
+        navigate(`/menu?q=${name}`)
     }
     return (
         <div onClick={handleClick} className=" bg-cover bg-center  flex w-full h-full flex-col justify-end items-start gap-2 rounded-2xl shadow-m " style={{backgroundImage: `url(${image})`}}>

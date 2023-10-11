@@ -1,22 +1,22 @@
 import React, { ChangeEvent, useState } from "react"
-import { useNavigate } from "react-router-dom"
 
-export const SearchBar = () => {
+
+type SearchBar = {
+    onSearch: (input: string) => boolean
+}
+export const SearchBar = ({onSearch}: SearchBar) => {
     const [loading, setLoading] = useState(false)
-    const navigate = useNavigate()
     const [input, setInput] = useState("")
 
     const handleSearch= () => {
         setLoading(true)
-        navigate(`/menu${input && "?q="+input}`)
-        
+        setLoading(!onSearch(input))
     }
     const handleCancel = () => {
         setLoading(false)
     }
     const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if( e.key === 'Enter' ) {
-            e.preventDefault()
             handleSearch()
         }
     }
@@ -25,7 +25,7 @@ export const SearchBar = () => {
     }
 
     return (
-        <form className="flex px-4 gap-1 self-stretch bg-white rounded-2xl items-center">
+        <div className="flex px-4 gap-1 self-stretch bg-white rounded-2xl items-center">
             { !loading ? 
                 <button onClick={handleSearch}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -35,13 +35,13 @@ export const SearchBar = () => {
             :
                 <button onClick={handleCancel}>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M6 6L18 18M6 18L18 6L6 18Z" stroke="#6B7280" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6 6L18 18M6 18L18 6L6 18Z" stroke="#6B7280" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                 </button>
             
             }
             <input value={input} onChange={handleChange} type="text" placeholder="Search Recipes" className=" w-full py-4  placeholder-gray-500 text-base leading-6 font-normal w-100 ring-0  focus:outline-none" onKeyDown={handleKeyDown} />
-        </form>
+        </div>
     )
 }
 

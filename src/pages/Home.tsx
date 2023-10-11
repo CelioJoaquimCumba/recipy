@@ -69,6 +69,10 @@ export const Home = () => {
         }
         setCategories(newCategories)
     }
+    const handleSearch = (input:string):boolean => {
+        navigate(`/menu${input && "?q="+input}`)
+        return true
+    }
     return (
         <div className=" h-full w-screen flex px-4 pb-2 pb4 flex-col bg-gray-100">
             { loading ? 
@@ -89,7 +93,7 @@ export const Home = () => {
                     <div className="flex flex-col items-start gap-2 self-stretch">
                         <h1 className="text-base leading-5 font-normal text-center text-orange-600">Good morning</h1>
                         <p className="text-gray-700 text-base leading-6 font-normal w-1/2">What would you like to cook today?</p>
-                        <SearchBar/>
+                        <SearchBar onSearch={handleSearch}/>
                     </div>
                     {/* meals by categories */}
                     <div className="flex flex-col gap-4 items-start self-stretch ">
