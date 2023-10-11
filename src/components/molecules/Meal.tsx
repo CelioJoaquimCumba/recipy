@@ -9,7 +9,7 @@ export const Meal = ({ id, name, categories, image, duration}: meal) => {
         navigate(`/meal/${encodeURIComponent(id)}`)
     }
     return (
-        <div onClick={handleClick} className=" bg-cover bg-center  flex min-w-[12.5rem] min-h-[18.75rem]  flex-col justify-end items-start gap-2 rounded-2xl shadow-m " style={{backgroundImage: `url(${image})`}}>
+        <div onClick={handleClick} className=" bg-cover bg-center flex-grow  flex min-w-[12.5rem] w-[12.5rem] min-h-[18.75rem]  flex-col justify-end items-start gap-2 rounded-2xl shadow-m " style={{backgroundImage: `url(${image})`}}>
             <div className=" flex-grow w-full bg-gradient-to-t from-black to-transparent p-2 opacity-90 rounded-2xl flex flex-col justify-end">
                 <div className="flex flex-wrap-reverse content-center gap-2 self-stretch">
                     {categories && categories.map((category: string) => {

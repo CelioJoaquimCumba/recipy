@@ -3,15 +3,18 @@ import { NavBar } from "../components/molecules/NavBar";
 import { SearchBar } from "../components/molecules/SearchBar";
 import { Tag } from "../components/atoms/Tag";
 import { useState } from "react";
+import { mealsData } from "../data/Meals";
+import { Meal } from "../components/molecules/Meal";
 
 export const Menu = () => {
-    const [tags, setTags] = useState(["breakfast","popular"])   
+    // Access query parameters from the location object
     const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const q = queryParams.get('q');
 
-  // Access query parameters from the location object
-  const queryParams = new URLSearchParams(location.search);
-  const q = queryParams.get('q');
-  console.log(q)
+    const [tags, setTags] = useState(q?q.split(" "):[])
+
+
 
   const handleClick = (tag: string) => {
     console.log(tag)
@@ -28,12 +31,22 @@ export const Menu = () => {
             {/* body */}
             <div className="flex py-4 flex-col gap-4 flex-grow self-stretch items-start">
                 {/* header */}
-                <SearchBar onSearch={handleSearch}/>
-                {/* tags */}
-                <div className="flex flex-start gap-2 self-stretch overflow-auto">
-                    {tags.map(tag => <Tag key={tag} onClick={handleClick} tag={tag}/>)}
+                <div className="flex flex-col items-start gap-2 self-stretch">
+                    <SearchBar onSearch={handleSearch}/>
+                    {/* tags */}
+                    <div className="flex flex-start gap-2 self-stretch overflow-auto">
+                        {tags.map(tag => <Tag key={tag} onClick={handleClick} tag={tag}/>)}
+                    </div>
                 </div>
-
+                {/* meals */}
+                <div className="flex items-start gap-2 self-stretch flex-wrap">
+                    {mealsData.map(meal => {
+                        console.log
+                        return (
+                            <Meal  {...meal} key={meal.id}/>
+                        )
+                    })}
+                </div>
             </div>
         </div>
     );
