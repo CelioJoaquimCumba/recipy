@@ -3,8 +3,8 @@ import { CategoryCard } from "../atoms/CategoryCard"
 export const TrendingCategories = () => {
     return (
         <div className="flex flex-col h-96 w-full gap-2">
-            <div className="flex flex-row flex-grow w-full h-64 gap-2">
-                <div className="w-1/2">
+            <div className="flex flex-row flex-grow w-full gap-2">
+                <div className="w-1/2 h-64">
                     <CategoryCard name="Breakfast" image={"https://images.pexels.com/photos/3757729/pexels-photo-3757729.jpeg?auto=compress&cs=tinysrgb&w=1600"}/>
                 </div>
                 <div className="flex flex-col flex-grow gap-2 w-1/2">
