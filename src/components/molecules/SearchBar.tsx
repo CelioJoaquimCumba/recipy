@@ -11,6 +11,7 @@ export const SearchBar = ({onSearch}: SearchBar) => {
     const handleSearch= () => {
         setLoading(true)
         setLoading(!onSearch(input))
+        setInput("")
     }
     const handleCancel = () => {
         setLoading(false)

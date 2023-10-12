@@ -22,7 +22,10 @@ export const Menu = () => {
     setTags(newTags)
   }
   const handleSearch = (input: string):boolean => {
-    console.log(input)
+    setTags((tags)=>{
+         const newTags = input.split(" ");
+        return [...new Set([...tags, ...newTags])];
+    })
     return true
   }
     return (
