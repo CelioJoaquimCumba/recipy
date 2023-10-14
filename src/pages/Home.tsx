@@ -74,7 +74,7 @@ export const Home = () => {
         return true
     }
     return (
-        <div className=" h-full w-screen flex px-4 pb-2 pb4 flex-col bg-gray-100">
+        <div className=" h-full w-full flex px-4 pb-2 pb4 flex-col bg-gray-100">
             { loading ? 
                 <div className="flex flex-col items-center justify-center h-full w-full">
                     <span className="relative flex   justify-center items-center">

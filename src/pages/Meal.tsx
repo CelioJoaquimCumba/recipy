@@ -151,7 +151,7 @@ export const Meal = () => {
     }
     if(meal){
         return (
-            <div className="flex flex-col items-start w-screen h-full p-4 pt-0 bg-gray-100">
+            <div className="flex flex-col items-start w-full h-full p-4 pt-0 bg-gray-100">
                 <NavBar/>
                 {/* body */}
                 <div className="flex py-4 flex-col gap-4 flex-grow self-stretch">
