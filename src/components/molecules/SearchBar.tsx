@@ -41,7 +41,7 @@ export const SearchBar = ({onSearch}: SearchBar) => {
                 </button>
             
             }
-            <input value={input} onChange={handleChange} type="text" placeholder="Search Recipes" className=" w-full py-4  placeholder-gray-500 text-base leading-6 font-normal w-100 ring-0  focus:outline-none" onKeyDown={handleKeyDown} />
+            <input autoFocus value={input} onChange={handleChange} type="text" placeholder="Search Recipes" className=" w-full py-4  placeholder-gray-500 text-base leading-6 font-normal w-100 ring-0  focus:outline-none" onKeyDown={handleKeyDown} />
         </div>
     )
 }
