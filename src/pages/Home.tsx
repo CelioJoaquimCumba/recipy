@@ -6,7 +6,7 @@ import { Button } from "../components/atoms/Button";
 import {category } from "../models/Category";
 import { useEffect, useState } from "react";
 // import { getMeals } from "../api/mealApi";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { mealsData } from "../data/Meals";
 import { categoriesData } from "../data/Categories";
 import { TrendingCategories } from "../components/organisms/TrendingCategories";
@@ -105,7 +105,7 @@ export const Home = () => {
                     {/* popular meals title */}
                     <div className="flex items-start gap-2 self-stretch justify-between">
                         <h1 className="text-base leading-6 font-semibold text-gray-700">Trending categories</h1>
-                        <a href="./menu" className="text-base leading-6 font-light text-orange-600"> see all</a>
+                        <Link to="/menu" className="text-base leading-6 font-light text-orange-600"> see all</Link>
                     </div>
                     {/* popular meals */}
                     <TrendingCategories/>
