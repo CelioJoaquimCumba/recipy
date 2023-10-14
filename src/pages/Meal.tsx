@@ -155,7 +155,7 @@ export const Meal = () => {
                 <NavBar/>
                 {/* body */}
                 <div className="flex py-4 flex-col gap-4 flex-grow self-stretch">
-                    <img className=" h-64 w-full object-cover rounded-2xl self-stretch" src={meal.image} alt="food image" />
+                    <img className=" w-full aspect-square object-cover rounded-2xl self-stretch" src={meal.image} alt="food image" />
                     {/* rating and categories */}
                     <div className="flex justify-between items-center self-stretch">
                         <div className="flex gap-2 overflow-x-auto">
