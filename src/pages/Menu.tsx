@@ -13,10 +13,8 @@ export const Menu = () => {
     const location = useLocation();
     const queryParams = new URLSearchParams(location.search);
     const q = queryParams.get('q');
-
     const [tags, setTags] = useState(q?q.split(" "):[])
     const [meals, setMeals] = useState(tags.length>0 ?getSearchMeals(tags) : [])
-
   const handleClick = (tag: string) => {
     const newTags = tags.filter(t => t !== tag)
     setTags(newTags)
