@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom"
+import { ScrollRestoration, createBrowserRouter } from "react-router-dom"
 import { Home } from "../pages/Home"
 import { Meal } from "../pages/Meal"
 import { Menu } from "../pages/Menu"
@@ -9,15 +9,15 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: "",
-                element: <Home/>
+                element: <><ScrollRestoration/><Home/></>
             },
             {
                 path: "meal/:id",
-                element: <Meal/>
+                element: <><ScrollRestoration/><Meal/></>
             },
             {
                 path: "menu",
-                element: <Menu/>
+                element: <><ScrollRestoration/><Menu/></>
             }
         ]
     },
