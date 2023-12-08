@@ -187,6 +187,7 @@ export const Meal = () => {
                         <h1 className="text-gray-700 text-base leading-6 font-semibold">Ingredients</h1>
                         <Ingredients ingredients={meal.ingredients} />
                     </div>
+                    {/* Instructions */}
                     <div className="flex flex-col items-start gap-2 self-stretch">
                         <h1 className="text-gray-700 text-base leading-6 font-semibold">Instructions</h1>
                         <Instructions instructions={meal.instructions} />
